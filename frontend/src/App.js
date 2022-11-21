@@ -3,6 +3,7 @@ import axios from "axios";
 
 import WalletInputs from "./components/WalletInputs";
 import NativeTokens from "./components/NativeTokens";
+import Tokens from "./components/Tokens";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [chain, setChain] = useState("0x1");
   const [nativeBalance, setNativeBalance] = useState(0);
   const [nativeValue, setNativeValue] = useState(0);
+  const [tokens, setTokens] = useState([]);
 
   return (
     <div className='App'>
@@ -26,6 +28,12 @@ function App() {
         setNativeBalance={setNativeBalance}
         nativeValue={nativeValue}
         setNativeValue={setNativeValue}
+      />
+      <Tokens
+        wallet={wallet}
+        chain={chain}
+        tokens={tokens}
+        setTokens={setTokens}
       />
     </div>
   );
